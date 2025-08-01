@@ -12,10 +12,21 @@ const todosList = document.querySelector(".todos__list");
 
 const openModal = (modal) => {
   modal.classList.add("popup_visible");
+  document.addEventListener("keydown", handleEscClose);
 };
 
 const closeModal = (modal) => {
   modal.classList.remove("popup_visible");
+  document.removeEventListener("keydown", handleEscClose);
+};
+
+const handleEscClose = (evt) => {
+  if (evt.key === "Escape") {
+    const openPopup = document.querySelector(".popup_visible");
+    if (openPopup) {
+      closeModal(openPopup);
+    }
+  }
 };
 
 const generateTodo = (data) => {
