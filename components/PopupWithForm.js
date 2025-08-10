@@ -23,7 +23,6 @@ class PopupWithForm extends Popup {
       evt.preventDefault();
       const inputValues = this._getinputValues();
       this._handleFormSubmit(inputValues);
-      this._popupForm.reset();
     });
   }
 }
